@@ -42,7 +42,7 @@ public class LeftAndRightActivity extends SlidingFragmentActivity {
 					savedInstanceState, "mContent");
 		if (mContent == null)
 			mContent = new ColorFragment(R.color.red);
-
+		 
 		// set the Behind View
 		setBehindContentView(R.layout.menu_frame);
 		 this.getSupportFragmentManager()
@@ -53,6 +53,7 @@ public class LeftAndRightActivity extends SlidingFragmentActivity {
 
 		// customize the SlidingMenu
 		SlidingMenu sm = getSlidingMenu();
+		sm.setMode(SlidingMenu.LEFT_RIGHT);
 		sm.setShadowWidthRes(R.dimen.shadow_width);
 		sm.setShadowDrawable(R.drawable.shadow);
 		sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
@@ -60,7 +61,7 @@ public class LeftAndRightActivity extends SlidingFragmentActivity {
 		sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 
-		sm.setMode(SlidingMenu.LEFT_RIGHT);
+		
 		sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
 
 		setContentView(R.layout.content_frame);
