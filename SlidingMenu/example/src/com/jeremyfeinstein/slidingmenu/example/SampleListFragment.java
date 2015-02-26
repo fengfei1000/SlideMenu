@@ -18,6 +18,11 @@ public class SampleListFragment extends ListFragment {
 
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
+//		String[] colors = getResources().getStringArray(R.array.color_names);
+//		ArrayAdapter<String> colorAdapter = new ArrayAdapter<String>(getActivity(), 
+//				android.R.layout.simple_list_item_1, android.R.id.text1, colors);
+//		setListAdapter(colorAdapter);
+		
 		SampleAdapter adapter = new SampleAdapter(getActivity());
 		for (int i = 0; i < 20; i++) {
 			adapter.add(new SampleItem("Sample List", android.R.drawable.ic_menu_search));
