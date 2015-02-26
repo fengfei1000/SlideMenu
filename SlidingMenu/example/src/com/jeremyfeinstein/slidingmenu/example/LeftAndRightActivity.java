@@ -29,7 +29,7 @@ public class LeftAndRightActivity extends SlidingFragmentActivity {
 	private Fragment mContent;
 
 	public LeftAndRightActivity() {
-	
+
 	}
 
 	@Override
@@ -42,26 +42,18 @@ public class LeftAndRightActivity extends SlidingFragmentActivity {
 					savedInstanceState, "mContent");
 		if (mContent == null)
 			mContent = new ColorFragment(R.color.red);
-		 
+
 		// set the Behind View
 		setBehindContentView(R.layout.menu_frame);
-		 this.getSupportFragmentManager()
-				.beginTransaction()
-	  
-		.replace(R.id.menu_frame, new LeftAndRightListFragment())
-		.commit();
+		this.getSupportFragmentManager().beginTransaction()
+
+		.replace(R.id.menu_frame, new LeftAndRightListFragment()).commit();
+		setSlidingActionBarEnabled(true);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 
 		// customize the SlidingMenu
 		SlidingMenu sm = getSlidingMenu();
 		sm.setMode(SlidingMenu.LEFT_RIGHT);
-		sm.setShadowWidthRes(R.dimen.shadow_width);
-		sm.setShadowDrawable(R.drawable.shadow);
-		sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
-		sm.setFadeDegree(0.35f);
-		sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-
-		
 		sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
 
 		setContentView(R.layout.content_frame);
@@ -75,15 +67,14 @@ public class LeftAndRightActivity extends SlidingFragmentActivity {
 				.commit();
 
 		sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
-		sm.setShadowDrawable(R.drawable.shadow);
+		// sm.setShadowDrawable(R.drawable.shadow);
 		// sm.setShadowWidthRes(R.dimen.shadow_width);
-		sm.setShadowWidth(15);
-		setSlidingActionBarEnabled(true);
+		// sm.setShadowWidth(15);
 		sm.setBehindScrollScale(0.0f);
 		sm.setFadeEnabled(true);
 		sm.setFadeDegree(0.8f);
 
-		// sm.setBackgroundImage(R.drawable.img_frame_background);
+		sm.setBackgroundImage(R.drawable.img_frame_background);
 		sm.setBehindCanvasTransformer(new SlidingMenu.CanvasTransformer() {
 			@Override
 			public void transformCanvas(Canvas canvas, float percentOpen) {
@@ -116,6 +107,7 @@ public class LeftAndRightActivity extends SlidingFragmentActivity {
 				.replace(R.id.content_frame, fragment).commit();
 		getSlidingMenu().showContent();
 	}
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -128,6 +120,7 @@ public class LeftAndRightActivity extends SlidingFragmentActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
