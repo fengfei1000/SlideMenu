@@ -1,5 +1,6 @@
 package com.jeremyfeinstein.slidingmenu.example;
 
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -26,14 +27,39 @@ public class PropertiesActivity extends BaseActivity {
 		setSlidingActionBarEnabled(true);
 
 		setContentView(R.layout.properties);
-		
+		final SlidingMenu sm = getSlidingMenu();
+		// sm.setBackgroundImage(R.drawable.img_frame_background);
+		sm.setBehindCanvasTransformer(new SlidingMenu.CanvasTransformer() {
+			@Override
+			public void transformCanvas(Canvas canvas, float percentOpen) {
+				float scale = (float) (percentOpen * 0.2 + 0.8);
+
+				canvas.scale(scale, scale, -canvas.getWidth() / 2,
+						canvas.getHeight() / 2);
+				//
+				//
+				//
+
+			}
+		});
+
+		sm.setAboveCanvasTransformer(new SlidingMenu.CanvasTransformer() {
+			@Override
+			public void transformCanvas(Canvas canvas, float percentOpen) {
+				float scale = (float) (1 - percentOpen * 0.2);
+
+				canvas.scale(scale, scale, canvas.getWidth() / 2,
+						canvas.getHeight() / 2);
+
+			}
+		});
 		// left and right modes
 		RadioGroup mode = (RadioGroup) findViewById(R.id.mode);
 		mode.check(R.id.left);
 		mode.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
-				SlidingMenu sm = getSlidingMenu();
+			
 				switch (checkedId) {
 				case R.id.left:
 					sm.setMode(SlidingMenu.LEFT);

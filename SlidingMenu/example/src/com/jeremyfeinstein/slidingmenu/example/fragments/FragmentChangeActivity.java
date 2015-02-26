@@ -45,12 +45,12 @@ public class FragmentChangeActivity extends BaseActivity {
 				SlidingMenu sm = getSlidingMenu();
 				sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
 				setSlidingActionBarEnabled(true);
-//				sm.setBehindScrollScale(0.0f);
-//				sm.setFadeDegree(0.35f);
+				sm.setBehindScrollScale(0.0f);
+				sm.setFadeDegree(0.35f);
 				// sm.setAlpha(0.8f);
 				sm.setFadeEnabled(false);
 				sm.setBehindScrollScale(0.25f);
-				sm.setFadeDegree(0.25f);
+//				sm.setFadeDegree(0.25f);
 
 				sm.setBackgroundImage(R.drawable.img_frame_background);
 				sm.setBehindCanvasTransformer(new SlidingMenu.CanvasTransformer() {
