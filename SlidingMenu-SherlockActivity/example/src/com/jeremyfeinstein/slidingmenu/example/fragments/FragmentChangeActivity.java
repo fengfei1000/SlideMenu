@@ -57,7 +57,7 @@ public class FragmentChangeActivity extends BaseActivity {
 		sm.setBehindScrollScale(0.25f);
 		sm.setFadeDegree(0.25f);
 
-//		sm.setBackgroundImage(R.drawable.img_frame_background);
+		sm.setBackgroundImage(R.drawable.img_frame_background);
 		sm.setBehindCanvasTransformer(new SlidingMenu.CanvasTransformer() {
 			@Override
 			public void transformCanvas(Canvas canvas, float percentOpen) {
@@ -72,7 +72,7 @@ public class FragmentChangeActivity extends BaseActivity {
 			@Override
 			public void transformCanvas(Canvas canvas, float percentOpen) {
 				float scale = (float) (1 - percentOpen * 0.25);
-				canvas.scale(scale, scale, 0, canvas.getHeight() / 2);
+				canvas.scale(scale, scale, canvas.getWidth() / 2, canvas.getHeight() / 2);
 			}
 		});
 	}

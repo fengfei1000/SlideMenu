@@ -1,25 +1,15 @@
 package com.jeremyfeinstein.slidingmenu.example;
 
-import android.R.integer;
 import android.graphics.Canvas;
-import android.graphics.Matrix;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.ListFragment;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.jeremyfeinstein.slidingmenu.example.fragments.ColorFragment;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu.OnClosedListener;
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu.OnOpenedListener;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
 public class LeftAndRightActivity extends SlidingFragmentActivity {
@@ -82,9 +72,6 @@ public class LeftAndRightActivity extends SlidingFragmentActivity {
 
 				canvas.scale(scale, scale, -canvas.getWidth() / 2,
 						canvas.getHeight() / 2);
-				//
-				//
-				//
 
 			}
 		});
@@ -93,7 +80,8 @@ public class LeftAndRightActivity extends SlidingFragmentActivity {
 			@Override
 			public void transformCanvas(Canvas canvas, float percentOpen) {
 				float scale = (float) (1 - percentOpen * 0.2);
-
+		 
+	 
 				canvas.scale(scale, scale, canvas.getWidth() / 2,
 						canvas.getHeight() / 2);
 

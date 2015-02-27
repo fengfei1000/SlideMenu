@@ -1,18 +1,9 @@
 package com.jeremyfeinstein.slidingmenu.example;
 
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
 import android.os.Bundle;
-import android.view.KeyEvent;
-import android.view.View;
-import android.view.ViewGroup;
 
-import com.jeremyfeinstein.slidingmenu.example.fragments.ColorFragment;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu.OnClosedListener;
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu.OnOpenedListener;
 
 
 public class LeftAndRightActivity extends BaseActivity {
@@ -39,6 +30,7 @@ public class LeftAndRightActivity extends BaseActivity {
 		.beginTransaction()
 		.replace(R.id.menu_frame_two, new SampleListFragment())
 		.commit();
+		getSlidingMenu().setBackgroundImage(R.drawable.img_frame_background);
 		getSlidingMenu().setBehindCanvasTransformer(new SlidingMenu.CanvasTransformer() {
 			@Override
 			public void transformCanvas(Canvas canvas, float percentOpen) {
@@ -55,7 +47,7 @@ public class LeftAndRightActivity extends BaseActivity {
 			@Override
 			public void transformCanvas(Canvas canvas, float percentOpen) {
 				float scale = (float) (1 - percentOpen * 0.25);
-				canvas.scale(scale, scale, 0, canvas.getHeight() / 2);
+				canvas.scale(scale, scale, canvas.getWidth() / 2, canvas.getHeight() / 2);
 			}
 		});
 	}
