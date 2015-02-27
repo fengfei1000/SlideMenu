@@ -367,16 +367,16 @@ public class CustomViewBehind extends ViewGroup {
 		int right = 0;
 		if (mMode == SlidingMenu.LEFT) {
 			left = content.getLeft() - getBehindWidth();
-			right = content.getLeft();
+			right = content.getLeft()+ content.getWidth();
 		} else if (mMode == SlidingMenu.RIGHT) {
-			left = content.getRight();
+			left = content.getRight()- content.getWidth();
 			right = content.getRight() + getBehindWidth();			
 		} else if (mMode == SlidingMenu.LEFT_RIGHT) {
 			left = content.getLeft() - getBehindWidth();
 			right = content.getLeft();
 			canvas.drawRect(left, 0, right, getHeight(), mFadePaint);
-			left = content.getRight();
-			right = content.getRight() + getBehindWidth();			
+			left = content.getRight()- content.getWidth();
+			right = content.getRight()  + content.getWidth();			
 		}
 		canvas.drawRect(left, 0, right, getHeight(), mFadePaint);
 	}
